@@ -33,7 +33,7 @@
     {
       "name": "hxcpp",
       "type": "haxelib",
-      "version": null
+      "version": "4.2.1"
     },
     {
       "name": "hxCodec",
@@ -56,11 +56,11 @@
       "version": null
     },
     {
-      "name": "hxdiscord_rpc",
+      "name": "extension-androidtools",
       "type": "git",
       "dir": null,
       "ref": "main",
-      "url": "https://github.com/MAJigsaw77/hxdiscord_rpc"
+      "url": "https://github.com/MaysLastPlay77/extension-androidtools"
     },
     {
       "name": "flxanimate",
