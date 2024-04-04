@@ -62,7 +62,7 @@ class Main extends Sprite
 		super();
 
 		// Credits to MAJigsaw77 (he's the og author for this code)
-		#if android
+	  #if android
 		Sys.setCwd(haxe.io.Path.addTrailingSlash(SUtil.getPath());
 		#elseif ios
 		Sys.setCwd(lime.system.System.applicationStorageDirectory);
@@ -106,9 +106,12 @@ class Main extends Sprite
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
 		#if ACHIEVEMENTS_ALLOWED Achievements.load(); #end
+		#if desktop
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
+	  #else
+  	addChild(new FlxGame(1280, 720, TitleState, 60, 60, true, false));
+  	#end
 
-		#if !mobile
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
@@ -116,7 +119,6 @@ class Main extends Sprite
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
-		#end
 
 		#if linux
 		var icon = Image.fromFile("icon.png");
