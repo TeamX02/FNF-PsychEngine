@@ -1,7 +1,5 @@
 package;
 
-
-
 #if android
 import android.Tools;
 import android.Permissions;
@@ -151,4 +149,4 @@ class SUtil
 			File.saveBytes(savePath, OpenFlAssets.getBytes(copyPath));
 	}
 	#end
-} 
+}
