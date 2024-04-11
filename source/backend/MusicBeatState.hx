@@ -28,6 +28,8 @@ class MusicBeatState extends FlxUIState
 		return Controls.instance;
 	}
 
+	public static var instance:MusicBeatState;
+	
 	#if mobile
 	public var mobileControls:MobileControls;
 	public var virtualPad:FlxVirtualPad;
@@ -137,6 +139,7 @@ class MusicBeatState extends FlxUIState
 	var _psychCameraInitialized:Bool = false;
 
 	override function create() {
+		instance = this;
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
 		#if MODS_ALLOWED Mods.updatedOnState = false; #end
 
