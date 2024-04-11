@@ -65,7 +65,7 @@ class Main extends Sprite
 
 		// Credits to MAJigsaw77 (he's the og author for this code)
 	  #if android
-		Sys.setCwd(haxe.io.Path.addTrailingSlash(SUtil.getPath());
+		Sys.setCwd(haxe.io.Path.addTrailingSlash(SUtil.getPath()));
 		#elseif ios
 		Sys.setCwd(lime.system.System.applicationStorageDirectory);
 		#end
