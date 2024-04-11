@@ -4,8 +4,10 @@ import flixel.FlxSubState;
 
 class MusicBeatSubstate extends FlxSubState
 {
+	public static var instance:MusicBeatSubstate;
 	public function new()
 	{
+		instance = this;
 		super();
 	}
 
@@ -24,7 +26,7 @@ class MusicBeatSubstate extends FlxSubState
 
 	inline function get_controls():Controls
 		return Controls.instance;
-
+		
 	override function update(elapsed:Float)
 	{
 		//everyStep();
