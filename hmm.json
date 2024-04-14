@@ -1,9 +1,12 @@
+```
 {
   "dependencies": [
     {
       "name": "lime",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "dir": null,
+      "ref": "develop",
+      "url": "https://github.com/mcagabe19-stuff/lime"
     },
     {
       "name": "openfl",
@@ -32,8 +35,10 @@
     },
     {
       "name": "hxcpp",
-      "type": "haxelib",
-      "version": "4.2.1"
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/mcagabe19-stuff/hxcpp"
     },
     {
       "name": "hxCodec",
@@ -56,25 +61,25 @@
       "version": null
     },
     {
-      "name": "extension-androidtools",
+      "name": "linc_luajit",
       "type": "git",
       "dir": null,
-      "ref": "main",
-      "url": "https://github.com/MaysLastPlay77/extension-androidtools"
+      "ref": "master",
+      "url": "https://github.com/superpowers04/linc_luajit.git"
     },
     {
       "name": "flxanimate",
       "type": "git",
       "dir": null,
       "ref": "dev",
-      "url": "https://github.com/ShadowMario/flxanimate"
+      "url": "https://github.com/ShadowMario/flxanimate.git"
     },
     {
-      "name": "linc_luajit",
+      "name": "extension-androidtools",
       "type": "git",
       "dir": null,
-      "ref": "master",
-      "url": "https://github.com/superpowers04/linc_luajit"
+      "ref": "main",
+      "url": "https://github.com/MaysLastPlay77/extension-androidtools.git"
     }
   ]
 }
