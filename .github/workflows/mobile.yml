@@ -43,6 +43,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null --quiet
+          haxelib remove sscript
           haxelib install hmm --quiet
           haxelib run hmm install
 
