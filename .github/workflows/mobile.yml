@@ -45,8 +45,8 @@ jobs:
           haxelib install hxcpp 4.2.1 > /dev/null --quiet
           haxelib install hmm --quiet
           haxelib run hmm install
-          haxelib remove SScript
-          haxelib remove hxCodec
+      #    haxelib remove SScript
+       #   haxelib remove hxCodec
       - name: Configure Android
         run: |
           haxelib run lime setup -alias -y
@@ -63,7 +63,9 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Building
-        run:  haxelib run lime build android -D DISABLED_MACRO_SUPERLATIVE -final
+        run: |
+         haxelib fixrepo
+         haxelib run lime build android -D DISABLED_MACRO_SUPERLATIVE -final
 
       - name: Clear Previous Cache
         uses: actions/github-script@main
