@@ -702,3 +702,27 @@ class FlxRuntimeShader extends FlxShader
 		{
 			trace('[WARN] Shader bool property ${name} not found.');
 			return null;
+		}
+		return prop.value[0];
+	}
+
+	/**
+	 * Retrieve a boolean array parameter of the shader.
+	 * @param name The name of the parameter to retrieve.
+	 */
+	public function getBoolArray(name:String):Null<Array<Bool>>
+	{
+		var prop:ShaderParameter<Bool> = Reflect.field(this.data, name);
+		if (prop == null)
+		{
+			trace('[WARN] Shader bool[] property ${name} not found.');
+			return null;
+		}
+		return prop.value;
+	}
+
+	public function toString():String
+	{
+		return 'FlxRuntimeShader';
+	}
+}
