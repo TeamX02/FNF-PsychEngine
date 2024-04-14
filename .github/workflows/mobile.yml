@@ -46,7 +46,6 @@ jobs:
           haxelib install hmm --quiet
           haxelib run hmm install
           haxelib remove SScript
-          haxelib install SScript
 
       - name: Configure Android
         run: |
