@@ -30,7 +30,7 @@ class MusicBeatState extends FlxUIState
 
 	public static var instance:MusicBeatState;
 	
-	#if mobile
+/*	#if mobile
 	public var mobileControls:MobileControls;
 	public var virtualPad:FlxVirtualPad;
 	public var trackedInputsMobileControls:Array<FlxActionInput> = [];
@@ -43,16 +43,10 @@ class MusicBeatState extends FlxUIState
 
 		virtualPad = new FlxVirtualPad(DPad, Action);
 		add(virtualPad);
-
-		/*controls.setVirtualPadUI(virtualPad, DPad, Action);
-		trackedInputsVirtualPad = controls.trackedInputsUI;
-		controls.trackedInputsUI = [];*/
 	}
 
 	public function removeVirtualPad()
 	{
-		/*if (trackedInputsVirtualPad != [])
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);*/
 
 		if (virtualPad != null)
 			remove(virtualPad);
@@ -76,9 +70,6 @@ class MusicBeatState extends FlxUIState
 			case 'Keyboard': // do nothing
 		}
 
-		/*trackedInputsMobileControls = controls.trackedInputsNOTES;
-		controls.trackedInputsNOTES = [];*/
-
 		var camControls:FlxCamera = new FlxCamera();
 		FlxG.cameras.add(camControls, DefaultDrawTarget);
 		camControls.bgColor.alpha = 0;
@@ -90,8 +81,6 @@ class MusicBeatState extends FlxUIState
 
 	public function removeMobileControls()
 	{
-		/*if (trackedInputsMobileControls != [])
-			controls.removeVirtualControlsInput(trackedInputsMobileControls);*/
 
 		if (mobileControls != null)
 			remove(mobileControls);
@@ -111,13 +100,6 @@ class MusicBeatState extends FlxUIState
 
 	override function destroy()
 	{
-		#if mobile
-		/*if (trackedInputsMobileControls != [])
-			controls.removeVirtualControlsInput(trackedInputsMobileControls);*/
-
-		/*if (trackedInputsVirtualPad != [])
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);*/
-		#end
 
 		super.destroy();
 
@@ -134,7 +116,7 @@ class MusicBeatState extends FlxUIState
 			mobileControls = null;
 		}
 		#end
-	}
+	}*/
 
 	var _psychCameraInitialized:Bool = false;
 
