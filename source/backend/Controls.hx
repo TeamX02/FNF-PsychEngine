@@ -93,7 +93,7 @@ class Controls
 		var result:Bool = (FlxG.keys.anyJustPressed(keyboardBinds[key]) == true);
 		if(result) controllerMode = false;
 
-		return result || _myGamepadJustPressed(gamepadBinds[key]) == true  #if mobile || mobileControlsJustPressed(key) == true #end;
+		return result || _myGamepadJustPressed(gamepadBinds[key]) == true  /*#if mobile || mobileControlsJustPressed(key) == true #end*/;
 	}
 
 	public function pressed(key:String)
@@ -101,7 +101,7 @@ class Controls
 		var result:Bool = (FlxG.keys.anyPressed(keyboardBinds[key]) == true);
 		if(result) controllerMode = false;
 
-		return result || _myGamepadPressed(gamepadBinds[key]) == true #if mobile || mobileControlsPressed(key) == true #end;
+		return result || _myGamepadPressed(gamepadBinds[key]) == true /*#if mobile || mobileControlsPressed(key) == true #end*/;
 	}
 
 	public function justReleased(key:String)
@@ -109,7 +109,7 @@ class Controls
 		var result:Bool = (FlxG.keys.anyJustReleased(keyboardBinds[key]) == true);
 		if(result) controllerMode = false;
 
-		return result || _myGamepadJustReleased(gamepadBinds[key]) == true #if mobile || mobileControlsJustReleased(key) == true #end;
+		return result || _myGamepadJustReleased(gamepadBinds[key]) == true /*#if mobile || mobileControlsJustReleased(key) == true #end*/;
 	}
 
 	public var controllerMode:Bool = false;
@@ -159,7 +159,7 @@ class Controls
 		return false;
 	}
 
-	#if mobile
+	/*#if mobile
 	public var substate:Bool = false;
 	public var virtualpad:FlxVirtualPad;
 	
@@ -302,7 +302,7 @@ class Controls
 			}
 		return false;
 	}
-	#end
+	#end*/
 
 	// IGNORE THESE
 	public static var instance:Controls;
