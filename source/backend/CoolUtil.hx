@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.util.FlxColor;
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
 
