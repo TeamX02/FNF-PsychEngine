@@ -64,7 +64,6 @@ jobs:
 
       - name: Building
         run: |
-         haxelib fixrepo
          haxelib run lime build android -D DISABLED_MACRO_SUPERLATIVE -final
 
       - name: Clear Previous Cache
