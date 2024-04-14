@@ -46,7 +46,7 @@ jobs:
           haxelib install hmm --quiet
           haxelib run hmm install
           haxelib remove SScript
-
+          haxelib remove hxCodec
       - name: Configure Android
         run: |
           haxelib run lime setup -alias -y
