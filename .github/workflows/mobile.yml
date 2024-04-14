@@ -56,6 +56,7 @@ jobs:
           haxelib set hxcpp 4.2.1
           haxelib set openfl 9.2.2
           haxelib set lime 8.0.2
+          haxelib set flixel 4.11.0
           haxelib set SScript 11.0.618
           haxelib set flixel-addons 3.0.2
           haxelib set flixel-ui 2.5.0
