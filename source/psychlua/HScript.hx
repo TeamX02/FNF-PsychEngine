@@ -362,9 +362,6 @@ class HScript extends SScript
 		return call(funcToRun, funcArgs);
 	}
   #end
-		if (funcToRun == null) return null;
-		return call(funcToRun, funcArgs);
-	}
 
 	#if LUA_ALLOWED
 	public static function implement(funk:FunkinLua) {
