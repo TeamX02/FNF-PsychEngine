@@ -319,8 +319,8 @@ class HScript extends SScript
 		if (funcToRun == null) return null;
 	#else
 	public function executeCode(?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):Tea {
-	 #end
 		if (funcToRun == null) return null;
+	 #end
 
 		if(!exists(funcToRun)) {
 			#if LUA_ALLOWED
