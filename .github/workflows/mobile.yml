@@ -57,12 +57,13 @@ jobs:
           haxelib set flixel 5.5.0
           haxelib set openfl 9.2.2
           haxelib set lime 8.0.2
-          haxelib set SScript 10.0.618
+          haxelib set SScript 7.7.0
           haxelib set flixel-addons 3.0.2
           haxelib set hxcpp 4.2.1
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-
+      - name: Skip SScript setup mode
+        run: echo 'oy9:showMacroty8:loopCosti25y10:includeAllfg' >> ~/settings.cocoa
       - name: Building
         run: |
          haxelib run lime build android -D DISABLED_MACRO_SUPERLATIVE -final
