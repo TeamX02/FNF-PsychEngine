@@ -65,7 +65,7 @@ jobs:
 
       - name: Building
         run: |
-         haxelib run lime build android -D DISABLED_MACRO_SUPERLATIVE -final
+         haxelib run lime build android -final
 
       - name: Clear Previous Cache
         uses: actions/github-script@main
