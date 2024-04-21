@@ -1,26 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "lime",
-      "type": "haxelib",
-      "version": "8.0.1"
-    },
-    {
-      "name": "openfl",
-      "type": "haxelib",
-      "version": "9.2.1"
-    },
-    {
-      "name": "flixel",
-      "type": "haxelib",
-      "version": "5.5.0"
-    },
-    {
-      "name": "flixel-addons",
-      "type": "haxelib",
-      "version": "3.0.2"
-    },
-    {
       "name": "flixel-tools",
       "type": "haxelib",
       "version": null
@@ -29,16 +9,6 @@
       "name": "flixel-ui",
       "type": "haxelib",
       "version": null
-    },
-    {
-      "name": "hxcpp",
-      "type": "haxelib",
-      "version": "4.2.1"
-    },
-    {
-      "name": "hxCodec",
-      "type": "haxelib",
-      "version": "2.6.0"
     },
     {
       "name": "SScript",
