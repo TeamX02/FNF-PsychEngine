@@ -16,7 +16,7 @@ jobs:
         id: setup-ndk
         uses: nttld/setup-ndk@main
         with:
-          ndk-version: r21e
+          ndk-version: r15c
 
       - name: Setup Java JDK
         uses: actions/setup-java@main
@@ -66,7 +66,7 @@ jobs:
         run: echo 'oy9:showMacroty8:loopCosti25y10:includeAllfg' >> ~/settings.cocoa
       - name: Building
         run: |
-         haxelib run lime build android -D DISABLED_MACRO_SUPERLATIVE -final
+         haxelib run lime build android -D DISABLED_MACRO_SUPERLATIV -D NO_PRECOMPILED_HEADERS -final
 
       - name: Clear Previous Cache
         uses: actions/github-script@main
