@@ -47,6 +47,7 @@ jobs:
           haxelib install openfl 9.2.1
           haxelib install flixel-addons 3.0.2
           haxelib git hxCodec https://github.com/SPLCoding/hxCodec-but-it-works-xd.git
+          haxelib set hxCodec git
           haxelib install lime 8.0.1
           haxelib install hmm --quiet
           haxelib run hmm install
