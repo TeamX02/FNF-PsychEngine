@@ -67,7 +67,7 @@ jobs:
         run: echo 'oy9:showMacroty8:loopCosti25y10:includeAllfg' >> ~/settings.cocoa
       - name: Building
         run: |
-         haxelib run lime build android -D DISABLED_MACRO_SUPERLATIV -D NO_PRECOMPILED_HEADERS -final
+         haxelib run lime build android -D DISABLED_MACRO_SUPERLATIVE -D NO_PRECOMPILED_HEADERS -D officialBuild -final
 
       - name: Clear Previous Cache
         uses: actions/github-script@main
