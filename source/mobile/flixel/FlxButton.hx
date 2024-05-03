@@ -14,7 +14,7 @@ import flixel.math.FlxPoint;
 import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.util.FlxDestroyUtil;
-import mobile.flixel.input.FlxMobileInputManager;
+import mobile.flixel.input.FlxMobileInputID;
 
 /**
  * A simple button class that calls a function when clicked by the touch.
@@ -41,7 +41,7 @@ class FlxButton extends FlxTypedButton<FlxText>
 	 */
 	public var text(get, set):String;
 
-	public var IDs:Array<FlxMobileInputManager> = [];
+	public var IDs:Array<FlxMobileInputID> = [];
 
 	/**
 	 * Creates a new `FlxButton` object with a gray background
@@ -52,7 +52,7 @@ class FlxButton extends FlxTypedButton<FlxText>
 	 * @param   Text      The text that you want to appear on the button.
 	 * @param   OnClick   The function to call whenever the button is clicked.
 	 */
-	public function new(X:Float = 0, Y:Float = 0, ?IDs:Array<FlxMobileInputManager>, ?Text:String, ?OnClick:Void->Void)
+	public function new(X:Float = 0, Y:Float = 0, ?IDs:Array<FlxMobileInputID>, ?Text:String, ?OnClick:Void->Void)
 	{
 		super(X, Y, OnClick);
 
