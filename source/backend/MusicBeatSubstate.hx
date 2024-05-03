@@ -33,6 +33,12 @@ class MusicBeatSubstate extends FlxSubState
 	inline function get_controls():Controls
 		return Controls.instance;
 
+	public var mobileControls:MobileControls;
+	public var virtualPad:FlxVirtualPad;
+
+	public var vpadCam:FlxCamera;
+	public var camControls:FlxCamera;
+
 	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode)
 	{
 		if (virtualPad != null)
@@ -73,18 +79,18 @@ class MusicBeatSubstate extends FlxSubState
 	{
 		if (virtualPad != null)
 		{
-			var camControls:FlxCamera = new FlxCamera();
-			FlxG.cameras.add(camControls, DefaultDrawTarget);
-			camControls.bgColor.alpha = 0;
-			virtualPad.cameras = [camControls];
+			vpadCam = new FlxCamera();
+			FlxG.cameras.add(vpadCam, DefaultDrawTarget);
+			vpadCam.bgColor.alpha = 0;
+			virtualPad.cameras = [vpadCam];
 		}
 	}
 
 	override function destroy()
 	{
 
-		super.destroy();
 		controls.isInSubstate = false;
+		
 		if (virtualPad != null)
 		{
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
@@ -96,6 +102,8 @@ class MusicBeatSubstate extends FlxSubState
 			mobileControls = FlxDestroyUtil.destroy(mobileControls);
 			mobileControls = null;
 		}
+		
+		super.destroy();
 	}
 
 	override function update(elapsed:Float)
