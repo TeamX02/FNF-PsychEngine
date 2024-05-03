@@ -136,8 +136,6 @@ class CurrentManager
 			buttonDown = control.hitbox.buttonDown;
 			buttonUp = control.hitbox.buttonUp;
 			buttonRight = control.hitbox.buttonRight;
-			buttonExtra = control.hitbox.buttonExtra;
-			buttonExtra2 = control.hitbox.buttonExtra2;
 		}
 		else
 		{
