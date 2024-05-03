@@ -47,15 +47,15 @@ enum FlxActionMode
  */
 class FlxVirtualPad extends FlxMobileInputManager
 {
-	public var buttonLeft:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.LEFT]);
-	public var buttonUp:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.UP]);
-	public var buttonRight:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.RIGHT]);
-	public var buttonDown:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.DOWN]);
+	public var buttonLeft:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.LEFT, FlxMobileInputID.noteLEFT]);
+	public var buttonUp:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.UP, FlxMobileInputID.noteUP]);
+	public var buttonRight:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.RIGHT, FlxMobileInputID.noteRIGHT]);
+	public var buttonDown:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.DOWN, FlxMobileInputID.noteDOWN]);
 
-	public var buttonLeft2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.LEFT2]);
-	public var buttonUp2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.UP2]);
-	public var buttonRight2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.RIGHT2]);
-	public var buttonDown2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.DOWN2]);
+	public var buttonLeft2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.LEFT2, FlxMobileInputID.noteLEFT]);
+	public var buttonUp2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.UP2, FlxMobileInputID.noteUP]);
+	public var buttonRight2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.RIGHT2, FlxMobileInputID.noteRIGHT]);
+	public var buttonDown2:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.DOWN2, FlxMobileInputID.noteDOWN]);
 
 	public var buttonA:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.A]);
 	public var buttonB:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.B]);
