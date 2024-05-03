@@ -6,7 +6,8 @@ import mobile.flixel.FlxButton;
 import haxe.ds.Map;
 
 /**
- * A FlxButton group with functions for input handling 
+ * A FlxButton group with functions for input handling
+ * @author Karim Akra
  */
 class FlxMobileInputManager extends FlxTypedSpriteGroup<FlxButton>
 {
