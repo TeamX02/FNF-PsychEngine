@@ -7,6 +7,7 @@ import openfl.display.BitmapData;
 import openfl.display.Shape;
 import mobile.flixel.FlxButton;
 import mobile.flixel.input.FlxMobileInputManager;
+import mobile.flixel.input.FlxMobileInputID;
 import haxe.ds.Map;
 
 /**
@@ -15,7 +16,7 @@ import haxe.ds.Map;
  *
  * @author Mihai Alexandru (M.A. Jigsaw)
  */
-class FlxHitbox extends FlxSpriteGroup
+class FlxHitbox extends FlxMobileInputManager
 {
 	public var buttonLeft:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.hitboxLEFT, FlxMobileInputID.noteLEFT]);
 	public var buttonDown:FlxButton = new FlxButton(0, 0, [FlxMobileInputID.hitboxDOWN, FlxMobileInputID.noteDOWN]);
