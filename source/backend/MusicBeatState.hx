@@ -31,6 +31,9 @@ class MusicBeatState extends FlxUIState
 	public var mobileControls:MobileControls;
 	public var virtualPad:FlxVirtualPad;
 
+	public var vpadCam:FlxCamera;
+	public var camControls:FlxCamera;
+
 	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode)
 	{
 		if (virtualPad != null)
@@ -71,10 +74,10 @@ class MusicBeatState extends FlxUIState
 	{
 		if (virtualPad != null)
 		{
-			var camControls:FlxCamera = new FlxCamera();
-			FlxG.cameras.add(camControls, DefaultDrawTarget);
-			camControls.bgColor.alpha = 0;
-			virtualPad.cameras = [camControls];
+			vpadCam = new FlxCamera();
+			FlxG.cameras.add(vpadCam, DefaultDrawTarget);
+			vpadCam.bgColor.alpha = 0;
+			virtualPad.cameras = [vpadCam];
 		}
 	}
 
