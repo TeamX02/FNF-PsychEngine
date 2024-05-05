@@ -185,7 +185,11 @@ class NotesSubState extends MusicBeatSubstate
 		if (controls.BACK) {
 			FlxG.mouse.visible = false;
 			FlxG.sound.play(Paths.sound('cancelMenu'));
+			#if desktop
 			close();
+			#else
+			FlxG.resetState();
+			#end
 			return;
 		}
 
