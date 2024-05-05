@@ -146,6 +146,13 @@ class PauseSubState extends MusicBeatSubstate
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
 		super.create();
+		#if mobile
+		if (!PlayState.chartingMode)
+		addVirtualPad(UP_DOWN, A);
+		else
+		addVirtualPad(LEFT_FULL, A_B);
+		addVirtualPadCamera(false);
+		#end
 	}
 	
 	function getPauseSong()
