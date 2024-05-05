@@ -30,6 +30,7 @@ class FlashingState extends MusicBeatState
 		add(warnText);
 		#if mobile
 		addVirtualPad(NONE, A_B);
+		addVirtualPadCamera(false);
 		#end
 	}
 
