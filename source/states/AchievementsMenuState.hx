@@ -204,7 +204,7 @@ class AchievementsMenuState extends MusicBeatState
 			}
 		}
 
-		if (controls.BACK) {
+		if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
 			goingBack = true;
@@ -295,7 +295,7 @@ class ResetAchievementSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if(controls.BACK)
+		if(controls.BACK #if mobile || FlxG.android.justReleased.BACK #end)
 		{
 			close();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
