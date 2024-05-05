@@ -73,6 +73,9 @@ class MasterEditorMenu extends MusicBeatState
 
 		FlxG.mouse.visible = false;
 		super.create();
+    #if mobile
+		addVirtualPad(LEFT_FULL, A_B);
+		#end
 	}
 
 	override function update(elapsed:Float)
