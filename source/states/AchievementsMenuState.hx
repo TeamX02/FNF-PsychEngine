@@ -122,7 +122,11 @@ class AchievementsMenuState extends MusicBeatState
 		
 		_changeSelection();
 		super.create();
-		
+
+    #if mobile
+    addVirtualPad(LEFT_FULL, B);
+    #end
+
 		FlxG.camera.follow(camFollow, null, 9);
 		FlxG.camera.scroll.y = -FlxG.height;
 	}
