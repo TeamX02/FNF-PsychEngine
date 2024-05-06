@@ -159,6 +159,7 @@ class ModSettingsSubState extends BaseOptionsMenu
 	override public function close()
 	{
 		FlxG.save.data.modSettings.set(folder, save);
+		FlxG.resetState();
 		FlxG.save.flush();
 		super.close();
 	}
