@@ -110,6 +110,9 @@ class ControlsSubState extends MusicBeatSubstate
 		add(text);
 
 		createTexts();
+		#if mobile
+		addVirtualPad(NONE, B);
+		#end
 	}
 
 	var lastID:Int = 0;
@@ -275,9 +278,13 @@ class ControlsSubState extends MusicBeatSubstate
 
 		if(!binding)
 		{
-			if(FlxG.keys.justPressed.ESCAPE || FlxG.gamepads.anyJustPressed(B))
+			if(FlxG.keys.justPressed.ESCAPE #if mobile controls.BACK #end || FlxG.gamepads.anyJustPressed(B))
 			{
+			  #if desktop
 				close();
+				#else
+				FlxG.resetState();
+				#end
 				return;
 			}
 			if(FlxG.keys.justPressed.CONTROL || FlxG.gamepads.anyJustPressed(LEFT_SHOULDER) || FlxG.gamepads.anyJustPressed(RIGHT_SHOULDER)) swapMode();
