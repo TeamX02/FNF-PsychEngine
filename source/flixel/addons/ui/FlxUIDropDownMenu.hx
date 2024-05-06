@@ -229,7 +229,7 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		for (i in 0...currentScroll) { //Hides buttons that goes before the current scroll
 			var button:FlxUIButton = list[i];
 			if(button != null) {
-				button.y = FlxG.height + 250;
+				button.y = -99999;
 			}
 		}
 		for (i in currentScroll...list.length)
@@ -431,26 +431,55 @@ class FlxUIDropDownMenu extends FlxUIGroup implements IFlxUIWidget implements IF
 		#if FLX_MOUSE
 		if (dropPanel.visible)
 		{
-			if(list.length > 1 && canScroll) {
-				var lastScroll:Int = currentScroll;
-				if(FlxG.mouse.wheel > 0 || FlxG.keys.justPressed.UP) {
+    #if android //thanks gamerbross -saw
+			if(list.length > 1 && canScroll) 
+			{
+				for (swipe in FlxG.swipes)
+				{
+					var f = swipe.startPosition.x - swipe.endPosition.x;
+					var g = swipe.startPosition.y - swipe.endPosition.y;
+					if (25 <= Math.sqrt(f * f + g * g))
+					{
+						if ((-45 <= swipe.startPosition.angleBetween(swipe.endPosition) && 45 >= swipe.startPosition.angleBetween(swipe.endPosition)))
+						{
+							// Go down
+							currentScroll++;
+							if(currentScroll >= list.length) currentScroll = list.length-1;
+							updateButtonPositions();
+						}
+						else if (-180 <= swipe.startPosition.angleBetween(swipe.endPosition) && -135 >= swipe.startPosition.angleBetween(swipe.endPosition) || (135 <= swipe.startPosition.angleBetween(swipe.endPosition) && 180 >= swipe.startPosition.angleBetween(swipe.endPosition)))
+						{
+							// Go up
+							--currentScroll;
+							if(currentScroll < 0) currentScroll = 0;
+							updateButtonPositions();
+						}
+					}
+				}
+			}
+			#else
+			if(list.length > 1 && canScroll) 
+			{
+				if(FlxG.mouse.wheel > 0 || FlxG.keys.justPressed.UP) 
+				{
 					// Go up
 					--currentScroll;
 					if(currentScroll < 0) currentScroll = 0;
+					updateButtonPositions();
 				}
 				else if (FlxG.mouse.wheel < 0 || FlxG.keys.justPressed.DOWN) {
 					// Go down
 					currentScroll++;
 					if(currentScroll >= list.length) currentScroll = list.length-1;
+					updateButtonPositions();
 				}
-
-				if(lastScroll != currentScroll) updateButtonPositions();
 			}
 
-			if (FlxG.mouse.justPressed && !FlxG.mouse.overlaps(this,camera))
+			if (FlxG.mouse.justPressed && !FlxG.mouse.overlaps(this))
 			{
 				showList(false);
 			}
+		#end
 		}
 		#end
 	}
