@@ -163,7 +163,7 @@ class NotesSubState extends MusicBeatSubstate
 		tipTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		tipTxt.borderSize = 2;
 		add(tipTxt);
-//		updateTip();
+		updateTip();
 
 		controllerPointer = new FlxShapeCircle(0, 0, 20, {thickness: 0}, FlxColor.WHITE);
 		controllerPointer.offset.set(20, 20);
@@ -176,18 +176,20 @@ class NotesSubState extends MusicBeatSubstate
 		_lastControllerMode = controls.controllerMode;
 		
 		#if mobile
-		addVirtualPad(NONE, A);
+		addVirtualPad(NONE, A_B);
+		//virtualPad.x = idk
+		//virtualPad.y = idk too
 		#end
 	}
 
-/*	function updateTip()
+	function updateTip()
 	{
 	  #if desktop
-		tipTxt.text = 'Hold ' + (!controls.controllerMode ? 'Shift' : 'Left Shoulder Button') + ' + Press RESET key to fully reset the selected Note.';
+	  tipTxt.text = 'Hold ' + (!controls.controllerMode ? 'Shift' : 'Left Shoulder Button') + ' + Press RESET key to fully reset the selected Note.';
 	  #else
 		tipTxt.text = 'Hold B + Press A key to fully reset the selected Note.';
 		#end
-	}*/
+	}
 
 	var _storedColor:FlxColor;
 	var changingNote:Bool = false;
@@ -198,7 +200,7 @@ class NotesSubState extends MusicBeatSubstate
 		NUMPADSEVEN => '7', NUMPADEIGHT => '8', NUMPADNINE => '9', A => 'A', B => 'B', C => 'C', D => 'D', E => 'E', F => 'F'];
 
 	override function update(elapsed:Float) {
-		if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
+		if (#if desktop controls.BACK #else || FlxG.android.justReleased.BACK #end) {
 			FlxG.mouse.visible = false;
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			#if desktop
@@ -239,7 +241,7 @@ class NotesSubState extends MusicBeatSubstate
 			// apparently theres no easy way to change mouse position that i know, oh well
 			*/
 			_lastControllerMode = controls.controllerMode;
-	//		updateTip();
+			updateTip();
 		}
 
 		// controller things
