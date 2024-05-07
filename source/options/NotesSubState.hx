@@ -200,7 +200,7 @@ class NotesSubState extends MusicBeatSubstate
 		NUMPADSEVEN => '7', NUMPADEIGHT => '8', NUMPADNINE => '9', A => 'A', B => 'B', C => 'C', D => 'D', E => 'E', F => 'F'];
 
 	override function update(elapsed:Float) {
-		if (#if desktop controls.BACK #else || FlxG.android.justReleased.BACK #end) {
+		if (controls.BACK) {
 			FlxG.mouse.visible = false;
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			#if desktop
@@ -440,6 +440,7 @@ class NotesSubState extends MusicBeatSubstate
 			else if(pointerY() >= hexTypeLine.y && pointerY() < hexTypeLine.y + hexTypeLine.height &&
 					Math.abs(pointerX() - 1000) <= 84)
 			{
+			  FlxG.stage.window.textInputEnabled = true;
 				hexTypeNum = 0;
 				for (letter in alphabetHex.letters)
 				{
