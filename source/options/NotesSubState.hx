@@ -187,7 +187,7 @@ class NotesSubState extends MusicBeatSubstate
 	  #if desktop
 	  tipTxt.text = 'Hold ' + (!controls.controllerMode ? 'Shift' : 'Left Shoulder Button') + ' + Press RESET key to fully reset the selected Note.';
 	  #else
-		tipTxt.text = 'Hold E + Press C buttom to fully reset the selected Note.';
+		tipTxt.text = 'Hold E + Press C button to fully reset the selected Note.';
 		#end
 	}
 
