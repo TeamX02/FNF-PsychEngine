@@ -502,6 +502,9 @@ class EditorPlayState extends MusicBeatSubstate
 
 	public function endSong()
 	{
+	  #if mobile
+	  mobileControls.visible = false;
+	  #end
 		vocals.pause();
 		vocals.destroy();
 		opponentVocals.pause();
