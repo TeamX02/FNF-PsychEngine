@@ -742,10 +742,14 @@ class DialogueCharacterEditorState extends MusicBeatState
 			var characterName:String = splittedImage[0].toLowerCase().replace(' ', '');
 
 			_file = new FileReference();
+			#if desktop
 			_file.addEventListener(#if desktop Event.SELECT #else Event.COMPLETE #end, onSaveComplete);
 			_file.addEventListener(Event.CANCEL, onSaveCancel);
 			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
 			_file.save(data, characterName + ".json");
+			#else
+			SUtil.saveContent(data, characterName + ".json");
+			#end
 		}
 	}
 
