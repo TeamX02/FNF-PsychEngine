@@ -299,7 +299,7 @@ class ResetAchievementSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if(controls.BACK #if mobile || FlxG.android.justReleased.BACK #end)
+		if(controls.BACK)
 		{
 			close();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
