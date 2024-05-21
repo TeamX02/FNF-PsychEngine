@@ -9,6 +9,10 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.*;
 import flixel.ui.FlxButton;
 import flixel.util.FlxDestroyUtil;
+import flixel.FlxG;
+import flixel.input.touch.FlxTouch;
+import flixel.input.FlxSwipe;
+import flixel.math.FlxPoint;
 
 import openfl.net.FileReference;
 import openfl.events.Event;
@@ -157,6 +161,10 @@ class CharacterEditorState extends MusicBeatState
 
 		if(ClientPrefs.data.cacheOnGPU) Paths.clearUnusedMemory();
 
+		#if mobile
+		addVirtualPad(BOTH_FULLCE, A_B_C_D_V_X_Y_Z);
+		addVirtualPadCamera(false);
+		#end
 		super.create();
 	}
 
@@ -862,19 +870,19 @@ class CharacterEditorState extends MusicBeatState
 		}
 		if(FlxG.keys.pressed.CONTROL) ctrlMult = 0.25;
 
-		// CAMERA CONTROLS
-		if (FlxG.keys.pressed.J) FlxG.camera.scroll.x -= elapsed * 500 * shiftMult * ctrlMult;
-		if (FlxG.keys.pressed.K) FlxG.camera.scroll.y += elapsed * 500 * shiftMult * ctrlMult;
-		if (FlxG.keys.pressed.L) FlxG.camera.scroll.x += elapsed * 500 * shiftMult * ctrlMult;
-		if (FlxG.keys.pressed.I) FlxG.camera.scroll.y -= elapsed * 500 * shiftMult * ctrlMult;
+		// CAMERA CONTROLS (Make it using touch pls)
+		if (FlxG.keys.pressed.J #if android || virtualPad.buttonLeft2.pressed #end) FlxG.camera.scroll.x -= elapsed * 500 * shiftMult * ctrlMult;
+		if (FlxG.keys.pressed.K #if android || virtualPad.buttonDown2.pressed #end) FlxG.camera.scroll.y += elapsed * 500 * shiftMult * ctrlMult;
+		if (FlxG.keys.pressed.L #if android || virtualPad.buttonRight2.pressed #end) FlxG.camera.scroll.x += elapsed * 500 * shiftMult * ctrlMult;
+		if (FlxG.keys.pressed.I #if android || virtualPad.buttonUp2.pressed #end) FlxG.camera.scroll.y -= elapsed * 500 * shiftMult * ctrlMult;
 
 		var lastZoom = FlxG.camera.zoom;
 		if(FlxG.keys.justPressed.R && !FlxG.keys.pressed.CONTROL) FlxG.camera.zoom = 1;
-		else if (FlxG.keys.pressed.E && FlxG.camera.zoom < 3) {
+		else if (FlxG.keys.pressed.E #if android || virtualPad.buttonY.pressed #end && FlxG.camera.zoom < 3) {
 			FlxG.camera.zoom += elapsed * FlxG.camera.zoom * shiftMult * ctrlMult;
 			if(FlxG.camera.zoom > 3) FlxG.camera.zoom = 3;
 		}
-		else if (FlxG.keys.pressed.Q && FlxG.camera.zoom > 0.1) {
+		else if (FlxG.keys.pressed.Q #if android || virtualPad.buttonZ.pressed #end && FlxG.camera.zoom > 0.1) {
 			FlxG.camera.zoom -= elapsed * FlxG.camera.zoom * shiftMult * ctrlMult;
 			if(FlxG.camera.zoom < 0.1) FlxG.camera.zoom = 0.1;
 		}
@@ -885,8 +893,8 @@ class CharacterEditorState extends MusicBeatState
 		var changedAnim:Bool = false;
 		if(anims.length > 1)
 		{
-			if(FlxG.keys.justPressed.W && (changedAnim = true)) curAnim--;
-			else if(FlxG.keys.justPressed.S && (changedAnim = true)) curAnim++;
+			if(FlxG.keys.justPressed.W #if android || virtualPad.buttonB.justPressed #end && (changedAnim = true)) curAnim--;
+			else if(FlxG.keys.justPressed.S #if android || virtualPad.buttonA.justPressed #end && (changedAnim = true)) curAnim++;
 
 			if(changedAnim)
 			{
@@ -898,8 +906,14 @@ class CharacterEditorState extends MusicBeatState
 		}
 
 		var changedOffset = false;
+		#if desktop
 		var moveKeysP = [FlxG.keys.justPressed.LEFT, FlxG.keys.justPressed.RIGHT, FlxG.keys.justPressed.UP, FlxG.keys.justPressed.DOWN];
 		var moveKeys = [FlxG.keys.pressed.LEFT, FlxG.keys.pressed.RIGHT, FlxG.keys.pressed.UP, FlxG.keys.pressed.DOWN];
+		#end
+		#if mobile
+		var moveKeysP = [virtualPad.buttonLeft.justPressed, virtualPad.buttonRight.justPressed, virtualPad.buttonUp.justPressed, virtualPad.buttonDown.justPressed];
+		var moveKeys = [virtualPad.buttonLeft.pressed, virtualPad.buttonRight.pressed, virtualPad.buttonUp.pressed, virtualPad.buttonDown.pressed];
+		#end
 		if(moveKeysP.contains(true))
 		{
 			character.offset.x += ((moveKeysP[0] ? 1 : 0) - (moveKeysP[1] ? 1 : 0)) * shiftMultBig;
@@ -980,6 +994,13 @@ class CharacterEditorState extends MusicBeatState
 				holdingFrameTime += elapsed;
 				if(holdingFrameTime > 0.5) holdingFrameElapsed += elapsed;
 			}
+			#if mobile
+			if(virtualPad.buttonD.pressed || virtualPad.buttonC.pressed)
+			{
+				holdingFrameTime += elapsed;
+				if(holdingFrameTime > 0.5) holdingFrameElapsed += elapsed;
+			}
+			#end
 			else holdingFrameTime = 0;
 
 			if(FlxG.keys.justPressed.SPACE)

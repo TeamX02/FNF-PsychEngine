@@ -21,6 +21,7 @@ enum FlxDPadMode
 	LEFT_FULL;
 	RIGHT_FULL;
 	BOTH_FULL;
+	BOTH_FULLCE;
 	NONE;
 }
 
@@ -114,6 +115,15 @@ class FlxVirtualPad extends FlxMobileInputManager
 				add(buttonLeft2 = createButton(FlxG.width - 384, FlxG.height - 309, 'left', 0xFF00FF));
 				add(buttonRight2 = createButton(FlxG.width - 132, FlxG.height - 309, 'right', 0xFF0000));
 				add(buttonDown2 = createButton(FlxG.width - 258, FlxG.height - 201, 'down', 0x00FFFF));
+			case BOTH_FULLCE:
+				add(buttonUp = createButton(105, FlxG.height - 345, 'up', 0x00FF00));
+				add(buttonLeft = createButton(0, FlxG.height - 243, 'left', 0xFF00FF));
+				add(buttonRight = createButton(207, FlxG.height - 243, 'right', 0xFF0000));
+				add(buttonDown = createButton(105, FlxG.height - 135, 'down', 0x00FFFF));
+				add(buttonUp2 = createButton(FlxG.width - 258, FlxG.height - 345, 'up', 0x00FF00));
+				add(buttonLeft2 = createButton(FlxG.width - 384, FlxG.height - 243, 'left', 0xFF00FF));
+				add(buttonRight2 = createButton(FlxG.width - 132, FlxG.height - 243, 'right', 0xFF0000));
+				add(buttonDown2 = createButton(FlxG.width - 258, FlxG.height - 135, 'down', 0x00FFFF));
 			case NONE: // do nothing
 		}
 
