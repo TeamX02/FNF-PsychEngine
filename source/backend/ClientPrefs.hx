@@ -77,6 +77,11 @@ import states.TitleState;
 	public var safeFrames:Float = 10;
 	public var guitarHeroSustains:Bool = true;
 	public var discordRPC:Bool = true;
+  #if mobile
+  public var altControls:Bool = false;
+  public var altCCustom:String = "middle";
+  public var altCType:String = "space";
+  #end
 }
 
 class ClientPrefs {
